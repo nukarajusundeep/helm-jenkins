@@ -172,7 +172,6 @@ master:
     - google-source-plugin:latest
     - google-kubernetes-engine:latest
     - google-storage-plugin:latest
-    - workflow-job:2.35
     - workflow-aggregator:2.6
 
   # Enable to always override the installed plugins with the values of 'master.installPlugins' on upgrade or redeployment.
