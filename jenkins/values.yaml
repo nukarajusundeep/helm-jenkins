@@ -130,19 +130,21 @@ master:
   # Note if you set this to 'LoadBalancer', you *must* define annotations to secure it. By default
   # this will be an external load balancer and allowing inbound 0.0.0.0/0, a HUGE
   # security risk:  https://github.com/kubernetes/charts/issues/1341
-  slaveListenerServiceType: "LoadBalancer"
+#  slaveListenerServiceType: "LoadBalancer"
   # Optionally assign an IP to the LoadBalancer slaveListenerService LoadBalancer
   # GKE users: only regional static IPs will work for Service Load balancer.
   # slaveListenerLoadBalancerIP: 1.2.3.4
   slaveListenerServiceAnnotations:
     cloud.google.com/load-balancer-type: Internal
+    service.beta.kubernetes.io/aws-load-balancer-internal: "True"
+    service.beta.kubernetes.io/load-balancer-source-ranges: "10.0.0.0/20"
   slaveKubernetesNamespace: jenkins
 
   # Example of 'LoadBalancer' type of agent listener with annotations securing it
-  # slaveListenerServiceType: LoadBalancer
-  # slaveListenerServiceAnnotations:
-  #   service.beta.kubernetes.io/aws-load-balancer-internal: "True"
-  #   service.beta.kubernetes.io/load-balancer-source-ranges: "172.0.0.0/8, 10.0.0.0/8"
+#  slaveListenerServiceType: LoadBalancer
+#  slaveListenerServiceAnnotations:
+#   service.beta.kubernetes.io/aws-load-balancer-internal: "True"
+#   service.beta.kubernetes.io/load-balancer-source-ranges: "172.0.0.0/8, 10.0.0.0/8"
 
   # LoadBalancerSourcesRange is a list of allowed CIDR values, which are combined with ServicePort to
   # set allowed inbound rules on the security group assigned to the master load balancer
