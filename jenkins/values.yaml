@@ -83,8 +83,8 @@ master:
   usePodSecurityContext: true
   # Set runAsUser to 1000 to let Jenkins run as non-root user 'jenkins' which exists in 'jenkins/jenkins' docker image.
   # When setting runAsUser to a different value than 0 also set fsGroup to the same value:
-#  runAsUser: 1000
-#  fsGroup: 1000
+  runAsUser: 1000
+  fsGroup: 1000
   servicePort: 8080
   targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
@@ -136,7 +136,6 @@ master:
   # slaveListenerLoadBalancerIP: 1.2.3.4
   slaveListenerServiceAnnotations:
     cloud.google.com/load-balancer-type: Internal
-    service.beta.kubernetes.io/aws-load-balancer-internal: "True"
     service.beta.kubernetes.io/load-balancer-source-ranges: "10.0.0.0/20"
   slaveKubernetesNamespace: jenkins
 
@@ -312,7 +311,7 @@ master:
   # to finish ingress setup, use the following values.
   # Docs: https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig
   BackendConfig:
-    enabled: true
+    enabled: false
     apiVersion: "cloud.google.com/v1beta1"
     name: jenkins-ci-backend
     labels: {}
