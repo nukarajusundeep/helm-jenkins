@@ -32,3 +32,6 @@ spec:
        args:
         - /nginx-ingress-controller
         - --default-backend-service=default/nginx-default-backend
+     - backend:
+         serviceName: jenkins-ci
+         servicePort: 8080
