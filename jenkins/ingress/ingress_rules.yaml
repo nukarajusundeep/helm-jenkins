@@ -15,4 +15,4 @@ spec:
       paths:
       - backend:
         serviceName: jenkins-ci
-        servicePort: 80
+        servicePort: 8080
