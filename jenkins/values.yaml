@@ -309,7 +309,7 @@ master:
   # If you're running on GKE and need to configure a backendconfig
   # to finish ingress setup, use the following values.
   # Docs: https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig
-  backendconfig:
+  BackendConfig:
     enabled: true
     apiVersion: "cloud.google.com/v1beta1"
     name: jenkins-ci-backend
