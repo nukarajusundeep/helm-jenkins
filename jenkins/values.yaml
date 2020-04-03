@@ -7,7 +7,7 @@
 # See templates/_helpers.tpl
 # nameOverride:
 # fullnameOverride:
-# namespaceOverride:
+namespaceOverride: jenkins
 
 # For FQDN resolving of the master service. Change this value to match your existing configuration.
 # ref: https://github.com/kubernetes/dns/blob/master/docs/specification.md
@@ -136,7 +136,7 @@ master:
   # slaveListenerLoadBalancerIP: 1.2.3.4
   slaveListenerServiceAnnotations:
     cloud.google.com/load-balancer-type: Internal
-  slaveKubernetesNamespace:
+  slaveKubernetesNamespace: jenkins
 
   # Example of 'LoadBalancer' type of agent listener with annotations securing it
   # slaveListenerServiceType: LoadBalancer
