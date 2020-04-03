@@ -85,7 +85,7 @@ master:
   # When setting runAsUser to a different value than 0 also set fsGroup to the same value:
   runAsUser: 1000
   fsGroup: 1000
-  servicePort: 8080
+  servicePort: 80
   targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
@@ -510,8 +510,8 @@ backup:
   # Add additional environment variables
   env:
   # Example environment variable required for AWS credentials chain
-  - name: "AWS_REGION"
-    value: "us-east-1"
+#  - name: "AWS_REGION"
+#    value: "us-east-1"
   resources:
     requests:
       memory: 1Gi
