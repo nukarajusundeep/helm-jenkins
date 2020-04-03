@@ -136,7 +136,6 @@ master:
   # slaveListenerLoadBalancerIP: 1.2.3.4
   slaveListenerServiceAnnotations:
     cloud.google.com/load-balancer-type: Internal
-    service.beta.kubernetes.io/load-balancer-source-ranges: "10.0.0.0/20"
   slaveKubernetesNamespace: jenkins
 
   # Example of 'LoadBalancer' type of agent listener with annotations securing it
