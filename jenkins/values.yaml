@@ -135,7 +135,7 @@ master:
   slaveListenerServiceType: LoadBalancer
   # Optionally assign an IP to the LoadBalancer slaveListenerService LoadBalancer
   # GKE users: only regional static IPs will work for Service Load balancer.
-  #slaveListenerLoadBalancerIP: 1.2.3.4
+  slaveListenerLoadBalancerIP: 35.230.72.55
   slaveListenerServiceAnnotations: {}
   slaveKubernetesNamespace: jenkins
 
@@ -150,7 +150,7 @@ master:
   loadBalancerSourceRanges:
   - 0.0.0.0/0
   # Optionally assign a known public LB IP
-  loadBalancerIP: 35.230.72.55
+#  loadBalancerIP: 35.230.72.55
   # Optionally configure a JMX port
   # requires additional javaOpts, ie
   # javaOpts: >
