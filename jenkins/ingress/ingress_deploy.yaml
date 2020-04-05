@@ -118,7 +118,7 @@ controller:
     enable: true
 
     ## Set the port where the NGINX stub_status or the NGINX Plus API is exposed.
-    port: 8081
+    port: 8080
 
     ## Whitelist IPv4 IP/CIDR blocks to allow access to NGINX stub_status or the NGINX Plus API. Separate multiple IP/CIDR by commas.
     allowCidrs: "127.0.0.1"
@@ -176,10 +176,7 @@ controller:
       targetPort: 443
 
     ## A list of custom ports to expose through the Ingress controller service. Follows the conventional Kubernetes yaml syntax for service ports.
-    customPorts:
-      enable: true
-      nodePort: ""
-      targetPort: 8080
+    customPorts: []
 
   serviceAccount:
     ## The name of the service account of the Ingress controller pods. Used for RBAC.
