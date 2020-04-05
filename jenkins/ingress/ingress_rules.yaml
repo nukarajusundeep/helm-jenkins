@@ -6,7 +6,7 @@ metadata:
   name: nginx-jenkins
 spec:
   rules:
-    - host:
+    - host: jenkins.example.com
       http:
         paths:
           - backend:
