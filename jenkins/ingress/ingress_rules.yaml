@@ -6,7 +6,7 @@ apiVersion: extensions/v1beta1
     name: nginx-jenkins
   spec:
     rules:
-      - host:
+      - host: jenkins.example.con
         http:
           paths:
             - backend:
