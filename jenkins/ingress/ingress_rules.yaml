@@ -7,7 +7,7 @@ metadata:
   namespace: jenkins
 spec:
   rules:
-    - host: "34.82.37.108"
+    - host: "jenkinsci"
       http:
         paths:
           - backend:
