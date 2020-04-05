@@ -7,10 +7,10 @@ metadata:
   namespace: jenkins
 spec:
   rules:
-    - host: "34.82.37.108:8080"
+    - host: "34.82.37.108"
       http:
         paths:
           - backend:
               serviceName: jenkins-ci
-              servicePort: 80
+              servicePort: 8080
             path:
