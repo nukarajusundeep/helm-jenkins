@@ -286,17 +286,17 @@ master:
   overwriteJobs: false
 
   ingress:
-    enabled: false
+    enabled: true
     # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
     apiVersion: "extensions/v1beta1"
     labels: {}
     annotations: {}
-    # kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
     # path: "/jenkins"
     # configures the hostname e.g. jenkins.example.com
-    hostName: jenkins.example.com
+    hostName: cj.aktanainc.app
     tls:
     # - secretName: jenkins.cluster.local
     #   hosts:
@@ -306,12 +306,20 @@ master:
   # to finish ingress setup, use the following values.
   # Docs: https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig
   backendconfig:
-    enabled: false
+    enabled: true
     apiVersion: "extensions/v1beta1"
-    name:
+    name: jenkins-ci
     labels: {}
     annotations: {}
-    spec: {}
+    spec:
+      rules:
+        - host: myproject.gke.com
+          http:
+            paths:
+              - backend:
+                  serviceName: jenkins-ci
+                  servicePort: 8080
+                path: /
 
   # Openshift route
   route:
