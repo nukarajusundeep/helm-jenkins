@@ -313,7 +313,7 @@ master:
     annotations: {}
     spec:
       rules:
-        - host: myproject.gke.com
+        - host: cj.aktanainc.app
           http:
             paths:
               - backend:
