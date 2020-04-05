@@ -312,9 +312,7 @@ master:
     labels:
     annotations:
     spec:
-      timeoutSec: 40
-        connectionDraining:
-          drainingTimeoutSec: 60
+
 
   # Openshift route
   route:
