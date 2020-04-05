@@ -318,7 +318,7 @@ master:
             paths:
               - backend:
                   serviceName: jenkins-ci
-                  servicePort: 8080
+                  servicePort: 80
                 path: /
 
   # Openshift route
