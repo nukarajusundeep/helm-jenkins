@@ -1,15 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jenkins-ingress
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
+  name: ingress-jenkins
 spec:
   tls:
-  - secretName: tls-secret
+  - hosts:
+    - 10.107.9.143
+    secretName:
   rules:
-  - http:
+  - host: 10.107.9.143
+    http:
       paths:
-      - backend:
+      - path:
+        backend:
           serviceName: jenkins-ci
           servicePort: 8080
