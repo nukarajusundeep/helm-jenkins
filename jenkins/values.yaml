@@ -150,7 +150,7 @@ master:
   loadBalancerSourceRanges:
   - 0.0.0.0/0
   # Optionally assign a known public LB IP
-  loadBalancerIP: 35.197.117.15
+  loadBalancerIP: 35.230.72.55
   # Optionally configure a JMX port
   # requires additional javaOpts, ie
   # javaOpts: >

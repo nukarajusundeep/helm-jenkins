@@ -24,25 +24,20 @@ metadata:
   labels:
     app: jenkins-ingress
 spec:
-  rules:
-    - host: nukaraju.dev
-      http:
-        paths:
-          - backend:
-              serviceName: jenkins-ci
-              servicePort: 8081
-            path:
+  backend:
+    serviceName: jenkins-backend
+    servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-ci-backend
+  name: jenkins-backend
   labels:
-    app: jenkins-ingress
+    app: jenkins-ci
 spec:
   type: NodePort
   selector:
-    app: jenkins-ingress
+    app: jenkins-ci
     tier: web
   ports:
   - port: 8080
