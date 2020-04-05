@@ -296,7 +296,7 @@ master:
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
     # path: "/jenkins"
     # configures the hostname e.g. jenkins.example.com
-    hostName:
+    hostName: nukaraju.dev
     tls:
     # - secretName: jenkins.cluster.local
     #   hosts:
