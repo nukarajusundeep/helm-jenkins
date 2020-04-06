@@ -22,7 +22,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jenkins-ci-ip
   labels:
-    app: jenkins-ci
+    app: "app.kubernetes.io/component:jenkins-master"
 spec:
   backend:
     serviceName: jenkins-backend
@@ -33,12 +33,12 @@ kind: Service
 metadata:
   name: jenkins-backend
   labels:
-    app: jenkins-ci
+    app: "app.kubernetes.io/component:jenkins-master"
 spec:
   type: NodePort
   selector:
     app: jenkins-ci
-    tier: web
+    tier: service
   ports:
   - port: 8080
     targetPort: 8081
