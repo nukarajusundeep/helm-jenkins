@@ -25,13 +25,13 @@ metadata:
     app: jenkins-ci
 spec:
   backend:
-    serviceName: jenkins-ci
+    serviceName: jenkins-backend
     servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-ci
+  name: jenkins-backend
   labels:
     app: jenkins-ci
 spec:
