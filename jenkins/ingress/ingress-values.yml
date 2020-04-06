@@ -137,7 +137,7 @@ controller:
     annotations: {}
 
     ## The static IP address for the load balancer. Requires controller.service.type set to LoadBalancer. The cloud provider must support this feature.
-    loadBalancerIP: ""
+    loadBalancerIP: "34.98.70.161"
 
     ## The list of external IPs for the Ingress controller service.
     externalIPs: []
