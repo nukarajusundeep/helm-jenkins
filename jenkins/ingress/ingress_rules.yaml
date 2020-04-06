@@ -18,7 +18,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jenkins-ingress
+  name: jenkins-ci
   namespace: jenkins
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jenkins-ci-ip

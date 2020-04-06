@@ -74,6 +74,7 @@ master:
   #   - name: http_proxy
   #     value: "http://192.168.64.1:3128"
   # Set min/max heap here if needed with:
+  javaOpts: "-Xms3500m -Xmx3500m"
   # javaOpts: "-Xms512m -Xmx512m"
   # jenkinsOpts: ""
   # jenkinsUrl: ""
@@ -91,7 +92,7 @@ master:
   targetPort: 8081
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   # Jenkins master service annotations
   serviceAnnotations: {}
   # Jenkins master custom labels
@@ -132,8 +133,8 @@ master:
   # Note if you set this to 'LoadBalancer', you *must* define annotations to secure it. By default
   # this will be an external load balancer and allowing inbound 0.0.0.0/0, a HUGE
   # security risk:  https://github.com/kubernetes/charts/issues/1341
-  loadBalancerIP: 35.230.72.55
-  slaveListenerServiceType: LoadBalancer
+#  loadBalancerIP: 35.230.72.55
+  slaveListenerServiceType: ClusterIP
   # Optionally assign an IP to the LoadBalancer slaveListenerService LoadBalancer
   # GKE users: only regional static IPs will work for Service Load balancer.
 #  slaveListenerLoadBalancerIP: 35.230.72.55
@@ -287,21 +288,23 @@ master:
   overwriteJobs: false
 
   ingress:
-    enabled: false
+    enabled: true
     # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
     apiVersion: "extensions/v1beta1"
     labels: {}
-    annotations: {}
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+      kubernetes.io/ingress.allow-http: "false"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
     # path: "/jenkins"
     # configures the hostname e.g. jenkins.example.com
-    hostName: nukaraju.dev
+    hostName: "nukaraju.dev"
     tls:
-    # - secretName: jenkins.cluster.local
-    #   hosts:
-    #     - jenkins.cluster.local
+       - secretName: jenkins-ingress-ssl
+         hosts:
+           - nukaraju.dev
 
   # If you're running on GKE and need to configure a backendconfig
   # to finish ingress setup, use the following values.
@@ -361,6 +364,8 @@ agent:
   tag: "3.27-1"
   customJenkinsLabels: []
   # name of the secret to be used for image pulling
+  persistence:
+    size: 100Gi
   imagePullSecretName:
   componentName: "jenkins-slave"
   privileged: false
@@ -440,7 +445,7 @@ persistence:
   storageClass:
   annotations: {}
   accessMode: "ReadWriteOnce"
-  size: "8Gi"
+  size: "16Gi"
   volumes:
   #  - name: nothing
   #    emptyDir: {}
