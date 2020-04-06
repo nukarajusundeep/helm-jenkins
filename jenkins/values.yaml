@@ -87,7 +87,7 @@ master:
   # fsGroup: <will be omitted in deployment if runAsUser is 0>
   runAsUser: 1000
   fsGroup: 1000
-  servicePort: 8080
+#  servicePort: 8080
   targetPort: 8081
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
