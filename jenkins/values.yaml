@@ -310,9 +310,9 @@ master:
   # to finish ingress setup, use the following values.
   # Docs: https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig
   backendconfig:
-    enabled: true
+    enabled: false
     apiVersion: "extensions/v1beta1"
-    name: jenkins-backend
+    name:
     labels: {}
     annotations: {}
     spec: {}
