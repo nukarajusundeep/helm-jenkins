@@ -18,20 +18,20 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jenkins-ci
+  name: jenkins-ingress
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jenkins-ci-ip
   labels:
-    app: jenkins-ingress
+    app: jenkins-ci
 spec:
   backend:
-    serviceName: jenkins-backend
+    serviceName: jenkins-ci
     servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-backend
+  name: jenkins-ci
   labels:
     app: jenkins-ci
 spec:
