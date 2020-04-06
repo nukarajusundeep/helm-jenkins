@@ -54,6 +54,7 @@ controller:
     ## Used as an alternative to specifying a certificate and key using `controller.defaultTLS.cert` and `controller.defaultTLS.key` parameters.
     secret: jenkins/jenkins-ingress-ssl #<namespace>/<secret_name>
 
+
   wildcardTLS:
     ## The base64-encoded TLS certificate for every Ingress host that has TLS enabled but no secret specified.
     ## If the parameter is not set, for such Ingress hosts NGINX will break any attempt to establish a TLS connection.
