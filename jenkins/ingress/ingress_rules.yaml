@@ -28,7 +28,7 @@ metadata:
 spec:
   - http:
       paths:
-        - path:
+        - path: /
           backend:
             serviceName: jenkins-backend
             servicePort: 8080
